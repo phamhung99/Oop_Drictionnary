@@ -11,7 +11,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -50,13 +51,13 @@ public class DictionaryManagement {
                     line = br.readLine();
                     continue;
                 }
-                Word w = new Word(line);
-           //     w.setWord_target(line.substring(0, line.indexOf("\t")));
-           //     w.setWord_explain(line.substring(line.indexOf("\t") + 1));
+                Word w = new Word();
+                w.setWord_target(line.substring(0, line.indexOf("\t")));
+                w.setWord_explain(line.substring(line.indexOf("\t") + 1));
                 Dictionary.listWord.add(w);
                 line = br.readLine();
             }
-
+           // Collections.sort(Dictionary.listWord);
             br.close();
         } catch (FileNotFoundException | UnsupportedEncodingException ex) {
             System.out.println("Error " + ex);
