@@ -1,11 +1,11 @@
-hi	xin ch�o
-people	con ngu?i
-student	h?c sinh
-teacher	gi�o vi�n
-phone	di?n tho?i
-school	tru?ng h?c
-dog	con ch�
-cat	con m�o
-fish	con c�
-pig	con l?n
+﻿hi	xin chào
+people	con người
+student	học sinh
+teacher	giáo viên
+phone	điện thoai
+school	trường học
+dog	con chó
+cat	con mèo
+fish	con cá
+pig	con lợn
 

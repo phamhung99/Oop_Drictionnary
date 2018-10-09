@@ -36,10 +36,10 @@ public class DictionaryCommandline {
       dic.dictionaryLookup();
    }
    
-//   public static void main(String[] args){
-//        DictionaryManagement Dm = new DictionaryManagement();
-//        Dm.insertFromFile();
-//        DictionaryCommandline Dc = new DictionaryCommandline();
-//        Dc.showAllWords();
-//    }
+   public static void main(String[] args){
+        DictionaryManagement Dm = new DictionaryManagement();
+        Dm.insertFromFile();
+        DictionaryCommandline Dc = new DictionaryCommandline();
+        Dc.showAllWords();
+    }
 }
