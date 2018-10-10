@@ -59,10 +59,8 @@ public class DictionaryManagement {
             }
            // Collections.sort(Dictionary.listWord);
             br.close();
-        } catch (FileNotFoundException | UnsupportedEncodingException ex) {
-            System.out.println("Error " + ex);
-        } catch (IOException ex) {
-            System.out.println("Error " + ex);
+        } catch(Exception e){
+            System.out.println("Quá trình đọc file bị lỗi !!!");
         }
     }
     
