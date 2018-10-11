@@ -5,6 +5,8 @@
  */
 package dictionary;
 
+import java.util.Collections;
+
 /**
  *
  * @author phamh
@@ -12,14 +14,16 @@ package dictionary;
 public class DictionaryCommandline {
     public void showAllWords(){
        if(!Dictionary.listWord.isEmpty()){
-          System.out.println("No  | English 		| Vietnamese");
+          System.out.println("No  | English 		 | Vietnamese");
           int i = 1;
           for(Word tmp : Dictionary.listWord){
               System.out.printf("%-4d", i);
               tmp.showWord();
               i++;
+              
           }
        }
+     
    }
    
    public void dictionaryBasic() {
@@ -37,9 +41,13 @@ public class DictionaryCommandline {
    }
    
    public static void main(String[] args){
+       
         DictionaryManagement Dm = new DictionaryManagement();
+      //  Dm.insertFromCommandline();
         Dm.insertFromFile();
+       
         DictionaryCommandline Dc = new DictionaryCommandline();
         Dc.showAllWords();
+        Dm.dictionaryLookup();
     }
 }

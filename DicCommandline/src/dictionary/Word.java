@@ -43,5 +43,6 @@ public class Word {
     
      public void showWord() {
         System.out.printf("%s%-20s%s%-20s\n","|",  word_target,"|", word_explain);
+        
     }
 }

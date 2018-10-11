@@ -5,14 +5,15 @@
  */
 package dictionary;
 
+import com.sun.javafx.css.Combinator;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.util.Collection;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 /**
@@ -36,6 +37,10 @@ public class DictionaryManagement {
         } 
         
         System.out.println("Đã thêm thành công");
+        Collections.sort(Dictionary.listWord, (Word w1, Word w2) -> (w1.getWord_target().compareTo(w2.getWord_target())));
+        for(Word w : Dictionary.listWord){
+            System.out.println(w.getWord_target() + " " + w.getWord_explain());
+        }
     }
     
     public void insertFromFile(){
@@ -43,11 +48,11 @@ public class DictionaryManagement {
         try {
             br = new BufferedReader(new InputStreamReader(new FileInputStream("dictionaries.txt"), "UTF-8"));
             
-            String line = br.readLine();;
+            String line = br.readLine();
 
             while (line != null) {
 
-                if (line.indexOf("\t") == -1) {
+                if (!line.contains("\t")) {
                     line = br.readLine();
                     continue;
                 }
@@ -57,22 +62,44 @@ public class DictionaryManagement {
                 Dictionary.listWord.add(w);
                 line = br.readLine();
             }
-           // Collections.sort(Dictionary.listWord);
+            
             br.close();
-        } catch(Exception e){
+        } catch(IOException e){
             System.out.println("Quá trình đọc file bị lỗi !!!");
         }
+
+        Collections.sort(Dictionary.listWord, (Word w1, Word w2) -> (w1.getWord_target().compareTo(w2.getWord_target())));
+        
+        
     }
     
     public void dictionaryLookup(){
         System.out.println("Nhập từ cần tìm :");
         String s = sc.nextLine();
-        for (Word tmp : Dictionary.listWord) {
-            if (tmp.getWord_target().equals(s)) {
-                tmp.showWord();
-                return;
+        
+        Comparator<Word> w = new Comparator<Word>() {
+            @Override
+            public int compare(Word o1, Word o2) {
+                return o1.getWord_target().compareTo(o2.getWord_target());
             }
+        };
+        int index = Collections.binarySearch(Dictionary.listWord,new Word(s, null), w);
+        if(index >=0){
+           
+            Dictionary.listWord.get(index).showWord();
+        }else{
+            System.out.println("Không tim thấy từ bạn nhâp !!!");
+            System.out.println("Nhập lại :");
+            dictionaryLookup();
         }
-        System.out.println("Không tìm thấy từ yêu cầu !!!");
+        
+        
+//        for (Word tmp : Dictionary.listWord) {
+//            if (tmp.getWord_target().equals(s)) {
+//                tmp.showWord();
+//                return;
+//            }
+//        }
+//        System.out.println("Không tìm thấy từ yêu cầu !!!");
     }
 }

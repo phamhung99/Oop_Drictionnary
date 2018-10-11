@@ -1,4 +1,4 @@
-﻿hi	xin chào
+﻿
 people	con người
 student	học sinh
 teacher	giáo viên
@@ -8,4 +8,5 @@ dog	con chó
 cat	con mèo
 fish	con cá
 pig	con lợn
+hi	xin chào
 
