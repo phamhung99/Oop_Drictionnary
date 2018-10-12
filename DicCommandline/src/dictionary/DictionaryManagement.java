@@ -7,10 +7,15 @@ package dictionary;
 
 import com.sun.javafx.css.Combinator;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
@@ -92,14 +97,39 @@ public class DictionaryManagement {
             System.out.println("Nhập lại :");
             dictionaryLookup();
         }
-        
-        
-//        for (Word tmp : Dictionary.listWord) {
-//            if (tmp.getWord_target().equals(s)) {
-//                tmp.showWord();
-//                return;
-//            }
-//        }
-//        System.out.println("Không tìm thấy từ yêu cầu !!!");
     }
+   
+    
+    public void dictionaryExportToFile() {
+        BufferedWriter bw = null;
+        try {
+            bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("fileDic"), "UTF-8"));
+            for (Word ele : Dictionary.listWord) {
+                bw.write(ele.getWord_target() + "\t" + ele.getWord_explain());
+                bw.newLine();
+            }
+            System.out.println("Quá trình ghi thành công");
+            bw.close();
+            
+        } catch (IOException ex) {
+            System.out.println("Quá trình ghi file bị lỗi !!!");
+        }
+    }
+    
+    public void showAllWords(){
+       if(!Dictionary.listWord.isEmpty()){
+          System.out.println("No  | English 		 | Vietnamese");
+          int i = 1;
+          for(Word tmp : Dictionary.listWord){
+              System.out.printf("%-4d", i);
+              tmp.showWord();
+              i++;
+              
+          }
+       }
+     
+   }
+    
+    
+    
 }

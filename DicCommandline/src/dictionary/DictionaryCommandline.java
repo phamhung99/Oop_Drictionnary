@@ -5,49 +5,30 @@
  */
 package dictionary;
 
-import java.util.Collections;
+import java.util.Scanner;
 
 /**
  *
  * @author phamh
  */
 public class DictionaryCommandline {
-    public void showAllWords(){
-       if(!Dictionary.listWord.isEmpty()){
-          System.out.println("No  | English 		 | Vietnamese");
-          int i = 1;
-          for(Word tmp : Dictionary.listWord){
-              System.out.printf("%-4d", i);
-              tmp.showWord();
-              i++;
-              
-          }
-       }
-     
-   }
+    
    
    public void dictionaryBasic() {
        DictionaryManagement dic = new DictionaryManagement();
        dic.insertFromCommandline();
-       this.showAllWords();
+       DictionaryManagement dm = new DictionaryManagement();
+       dm.showAllWords();
         
        
    }
    public void dictionaryAdvanced() {
       DictionaryManagement dic = new DictionaryManagement();
       dic.insertFromFile();
-      this.showAllWords();
+      DictionaryManagement dm = new DictionaryManagement();
+      dm.showAllWords();
       dic.dictionaryLookup();
    }
    
-   public static void main(String[] args){
-       
-        DictionaryManagement Dm = new DictionaryManagement();
-      //  Dm.insertFromCommandline();
-        Dm.insertFromFile();
-       
-        DictionaryCommandline Dc = new DictionaryCommandline();
-        Dc.showAllWords();
-        Dm.dictionaryLookup();
-    }
+   
 }
