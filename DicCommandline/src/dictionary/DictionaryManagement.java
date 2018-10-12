@@ -116,6 +116,82 @@ public class DictionaryManagement {
         }
     }
     
+    public void add(){
+        System.out.println("Nhập số từ bạn muốn thêm : ");
+        int s = sc.nextInt();
+        sc.nextLine();
+        for(int i =0;i<s;i++){
+            System.out.println("Nhập từ bạn muốn thêm : " );{
+            String t = sc.nextLine();
+            System.out.println("Nhập nghĩa tiếng Việt : ");
+            String e = sc.nextLine();
+            Word w = new Word(t,e);
+            int index = 0;
+            for(int j=0;j < Dictionary.listWord.size();j++){
+                if(t.compareTo(Dictionary.listWord.get(j).getWord_target()) < 0){
+                    index = j;
+                    break;
+                }
+            }
+            Dictionary.listWord.add(index, w);
+        }
+        }
+    }
+    
+    public void edit(){
+        System.out.print("Nhập từ bạn muốn chỉnh sửa : ");
+        String s = sc.nextLine();
+        
+        Comparator<Word> w = new Comparator<Word>() {
+            @Override
+            public int compare(Word o1, Word o2) {
+                return o1.getWord_target().compareTo(o2.getWord_target());
+            }
+        };
+        int index = Collections.binarySearch(Dictionary.listWord,new Word(s, null), w);
+        
+        if(index >= 0){
+            System.out.print(Dictionary.listWord.get(index).getWord_target() + " --> " );
+            Dictionary.listWord.get(index).setWord_target(sc.nextLine());
+            
+            System.out.print(Dictionary.listWord.get(index).getWord_explain() + " --> " );
+            Dictionary.listWord.get(index).setWord_explain(sc.nextLine());
+        }else System.out.println("Không tìm thấy từ bạn vừa nhập !!!");
+    }
+    
+    public void delete(){
+        System.out.println("Nhập từ bạn muốn xóa :");
+        String s = sc.nextLine();
+        Comparator<Word> w = new Comparator<Word>() {
+            @Override
+            public int compare(Word o1, Word o2) {
+                return o1.getWord_target().compareTo(o2.getWord_target());
+            }
+        };
+        int index = Collections.binarySearch(Dictionary.listWord,new Word(s, null), w);
+        if(index >=0){
+            Dictionary.listWord.remove(index);
+            System.out.println("Xóa thành công!!");
+        }else System.out.println("Không tìm thấy từ bạn muốn xóa !!!");
+        
+    }
+    
+    public void dictionarySearcher(){
+        System.out.println("Nhập từ bạn muốn tìm :");
+        String s = sc.nextLine();
+        int flag = 0;
+        for (Word tmp : Dictionary.listWord) {
+            if (tmp.getWord_target().indexOf(s) == 0) {
+                tmp.showWord();
+                flag = 1;
+            }
+        }
+        if(flag == 0){
+            System.out.println("Không tìm thấy từ bạn nhập");
+        }
+    }
+
+    
     public void showAllWords(){
        if(!Dictionary.listWord.isEmpty()){
           System.out.println("No  | English 		 | Vietnamese");
