@@ -30,6 +30,7 @@ public class DictionaryCommandline {
       dic.dictionaryLookup();
    }
    public static void main(String[] args) {
+       //DictionaryApplication da = new DictionaryApplication();
         Scanner sc = new Scanner(System.in);
         DictionaryManagement DicM = new DictionaryManagement();
         DicM.insertFromFile();
@@ -67,7 +68,7 @@ public class DictionaryCommandline {
                     DicM.dictionaryExportToFile();
                     break;
             }
-            
+       
 
         } while (option >= 1 && option <= 6);
     }

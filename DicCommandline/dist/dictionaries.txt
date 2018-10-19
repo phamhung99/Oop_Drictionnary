@@ -172,7 +172,6 @@ approve	tán thành, đồng ý, chấp thuận
 approving	tán thành, đồng ý, chấp thuận
 approximate	giống với, giống hệt với
 approximately	khoảng chừng, độ chừng
-April	tháng Tư
 area	diện tích, bề mặt
 argue	chứng tỏ, chỉ rõ
 argument	lý lẽ
@@ -226,7 +225,6 @@ attract	hút; thu hút, hấp dẫn
 attraction	sự hút, sức hút
 attractive	hút, thu hút, có duyên, lôi cuốn
 audience	thính, khan giả
-August	tháng Tám
 aunt	cô, dì
 author	tác giả
 authority	uy quyền, quyền lực
@@ -777,7 +775,6 @@ debate	cuộc tranh luận, cuộc tranh cãi; tranh luận, bàn cãi
 debt	nợ
 decade	thập kỷ, bộ mười, nhóm mười
 decay	tình trạng suy tàn, suy sụp, tình trạng đổ nát
-December	tháng mười hai, tháng Chạp
 decide	quyết định, giải quyết, phân xử
 decision	sự quyết định, sự giải quyết, sự phân xử
 declare	tuyên bố, công bố

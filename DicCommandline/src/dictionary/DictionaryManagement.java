@@ -78,7 +78,7 @@ public class DictionaryManagement {
         
     }
     
-    public void dictionaryLookup(){
+    public  void dictionaryLookup(){
         System.out.println("Nhập từ cần tìm :");
         String s = sc.nextLine();
         
