@@ -64,6 +64,9 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="btAdd">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/dictionary/image/add.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Th&#xea;m t&#x1eeb;"/>
       </Properties>
       <Events>
@@ -72,6 +75,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btEdit">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/dictionary/image/edit.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="S&#x1eed;a t&#x1eeb;"/>
       </Properties>
       <Events>
@@ -80,6 +86,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btDelete">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/dictionary/image/remove.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="X&#xf3;a t&#x1eeb;"/>
       </Properties>
       <Events>
@@ -95,6 +104,12 @@
       <SubComponents>
         <Component class="javax.swing.JList" name="jList">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="ff" red="cc" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="13" style="1"/>
+            </Property>
             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
               <StringArray count="0"/>
             </Property>
@@ -110,6 +125,9 @@
     </Container>
     <Component class="javax.swing.JButton" name="btSearch">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/dictionary/image/search_add.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m"/>
       </Properties>
       <Events>
