@@ -7,6 +7,7 @@ package dictionary;
 
 import java.awt.Color;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,6 +15,7 @@ import javax.swing.DefaultListModel;
  */
 public class Search extends javax.swing.JFrame {
     private static DefaultListModel dList = new DefaultListModel();
+    private static String s = "";
     /**
      * Creates new form Search
      */
@@ -65,7 +67,17 @@ public class Search extends javax.swing.JFrame {
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dictionary/image/voice.png"))); // NOI18N
         jButton2.setMaximumSize(new java.awt.Dimension(50, 50));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
+        ListSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ListSearchMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(ListSearch);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -92,8 +104,8 @@ public class Search extends javax.swing.JFrame {
                         .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton1)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -137,6 +149,20 @@ public class Search extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if(!s.equals("")){
+            Voice voice = new Voice("kevin16");
+            voice.speak(s);
+            s = "";
+        }else{
+            JOptionPane.showMessageDialog(null, "Bạn cần chọn từ trong danh sách để phát âm");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void ListSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListSearchMouseClicked
+       s = ListSearch.getSelectedValue().toString();
+    }//GEN-LAST:event_ListSearchMouseClicked
 
     /**
      * @param args the command line arguments
